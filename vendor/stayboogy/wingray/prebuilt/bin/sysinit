@@ -1,0 +1,16 @@
+#!/system/bin/sh
+
+if [ -e /data/local/tmp/scriptlog.txt ];then
+rm /data/local/tmp/scriptlog.txt
+fi
+
+SCRIPTLOG=/data/local/tmp/scriptlog.txt
+touch $SCRIPTLOG
+echo "$(date) Log Created..." >> $SCRIPTLOG
+if [ -e /system/etc/init.d ];then
+  for i in /system/etc/init.d/* ; do
+        echo "$(date) $i Started.." >> $SCRIPTLOG
+        $i  2>>$SCRIPTLOG 
+        echo "$(date) $i Finished.." >> $SCRIPTLOG
+  done
+fi
