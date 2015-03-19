@@ -34,26 +34,10 @@ PRODUCT_PACKAGES := \
     libfwdlockengine \
     WAPPushManager
 
-# Get some sounds
-$(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
-
-# Get the TTS language packs
-$(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
-
-# Get a list of languages.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
-
-# Get everything else from the parent package
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 # Device specific
 $(call inherit-product, device/moto/wingray/device.mk)
-
-$(call inherit-product, vendor/moto/wingray/wingray-vendor.mk)
-
-PRODUCT_COPY_FILES += \
-	vendor/stayboogy/wingray/prebuilt/bin/sysinit:system/bin/sysinit \
-	vendor/stayboogy/wingray/prebuilt/etc/initd/01optimize:system/etc/init.d/01optimize
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_wingray

@@ -20,7 +20,6 @@
 /system/bin/akmd2
 /system/bin/batch
 /system/bin/brcm_guci_drv
-/system/bin/bugtogo.sh
 /system/bin/ftmipcd
 /system/bin/location
 /system/bin/tcmd
@@ -92,7 +91,5 @@
 /system/lib/libstagefrighthw.so
 /system/lib/libtpa.so
 /system/lib/libtpa_core.so
-/system/media/bootanimation-encrypted.zip
-/system/media/bootanimation.zip
 /system/vendor/etc/audio_effects.conf
 /system/vendor/firmware/fw_bcm4329_mfg.bin
