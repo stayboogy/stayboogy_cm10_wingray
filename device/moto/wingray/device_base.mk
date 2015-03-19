@@ -118,9 +118,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := xlarge mdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
-# inherit from the non-open-source side, if present
-$(call inherit-product-if-exists, vendor/motorola/wingray/wingray-vendor.mk)
-
 WIFI_BAND := 802_11_ABG
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
