@@ -88,8 +88,7 @@ PRODUCT_PACKAGES := \
     hcitool \
     bttest \
     libnetcmdiface \
-    com.android.future.usb.accessory \
-    whisperd
+    com.android.future.usb.accessory
 
 PRODUCT_PACKAGES += \
     Torch \
