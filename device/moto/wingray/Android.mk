@@ -18,8 +18,7 @@ subdir_makefiles := \
     $(LOCAL_PATH)/liblights/Android.mk \
     $(LOCAL_PATH)/recovery/Android.mk \
     $(LOCAL_PATH)/whisper/Android.mk \
-    $(LOCAL_PATH)/power/Android.mk \
-    $(LOCAL_PATH)/StingrayParts/Android.mk
+    $(LOCAL_PATH)/power/Android.mk
 
 ifneq ($(filter stingray wingray everest,$(TARGET_DEVICE)),)
 include $(subdir_makefiles)

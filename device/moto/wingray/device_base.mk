@@ -94,8 +94,7 @@ PRODUCT_PACKAGES := \
 PRODUCT_PACKAGES += \
     Torch \
     LiveWallpapersPicker \
-    PhotoTable \
-    StingrayParts
+    PhotoTable
 
 PRODUCT_CHARACTERISTICS := tablet
 
