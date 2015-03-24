@@ -13,6 +13,8 @@
 # limitations under the License.
 
 LOCAL_PATH := $(my-dir)
+include $(CLEAR_VARS)
+
 subdir_makefiles := \
     $(LOCAL_PATH)/sensors/Android.mk \
     $(LOCAL_PATH)/liblights/Android.mk \
