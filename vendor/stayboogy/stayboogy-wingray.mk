@@ -4,7 +4,7 @@ SUPERUSER_PACKAGE_PREFIX := com.android.settings.cyanogenmod.superuser
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.version=1.0
+  ro.cm.version=1.1
 
 include frameworks/base/data/sounds/NewAudio.mk
 

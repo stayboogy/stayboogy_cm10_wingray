@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-DEVICE_PACKAGE_OVERLAYS := \
-    device/moto/wingray/overlay-common
-
 PRODUCT_PROPERTY_OVERRIDES := \
     wifi.interface=wlan0 \
     ro.sf.lcd_density=160 \
@@ -88,12 +85,14 @@ PRODUCT_PACKAGES := \
     hcitool \
     bttest \
     libnetcmdiface \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
+    whisperd
 
 PRODUCT_PACKAGES += \
     Torch \
     LiveWallpapersPicker \
-    PhotoTable
+    PhotoTable \
+    StingrayParts
 
 PRODUCT_CHARACTERISTICS := tablet
 
@@ -116,6 +115,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := xlarge mdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
+# inherit from the non-open-source side, if present
+$(call inherit-product-if-exists, vendor/motorola/wingray/wingray-vendor.mk)
+
 WIFI_BAND := 802_11_ABG
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+

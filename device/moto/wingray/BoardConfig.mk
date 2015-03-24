@@ -34,6 +34,10 @@ USE_PROPRIETARY_AUDIO_EXTENSIONS := false
 # Use a smaller subset of system fonts to keep image size lower
 SMALLER_FONT_FOOTPRINT := true
 
+# inherit from the proprietary version
+# needed for BP-flashing updater extensions
+-include vendor/motorola/stingray/BoardConfigVendor.mk
+
 TARGET_BOARD_PLATFORM := tegra
 
 TARGET_CPU_ABI := armeabi-v7a
@@ -80,6 +84,12 @@ BOARD_EGL_CFG := device/moto/wingray/egl.cfg
 MAX_EGL_CACHE_KEY_SIZE := 4096
 MAX_EGL_CACHE_SIZE := 2146304
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+
+ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
+# needed for source compilation of nvidia libraries
+-include vendor/nvidia/proprietary_src/build/definitions.mk
+-include vendor/nvidia/build/definitions.mk
+endif
 
 TARGET_RECOVERY_UI_LIB := librecovery_ui_stingray
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"

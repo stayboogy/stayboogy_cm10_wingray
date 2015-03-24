@@ -2,6 +2,7 @@ import init.stingray.usb.rc
 
 on init
     # See storage config details at http://source.android.com/tech/storage/
+    # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage 0550 system sdcard_r
     mkdir /storage/emulated 0555 root root
@@ -148,6 +149,13 @@ on boot
     chmod 664 /sys/class/gpio/gpio168/value
 
 # Power Management Settings
+    # cpufreq defaults
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 1000000
+write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 1000000
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1700000
+write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1700000
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
+write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
     # timer 20ms, min sample 80ms, go max at 80%
     write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 80000
@@ -158,8 +166,7 @@ on boot
     write /sys/module/wakelock/parameters/debug_mask 7
     # No need to continuously scan w1 bus
     write /sys/devices/w1\ bus\ master/w1_master_search 1
-    # Disable charging LED by default
-    write /sys/class/gpio/gpio168/value 1
+
 
 # LTE specific TCP buffer setting for stingray
     # ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
